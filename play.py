@@ -1,4 +1,3 @@
-
 import asyncio, json, requests, websockets
 TRADE_THRESHOLD = 50000.0
 WS = "wss://ws.rugplay.com"
