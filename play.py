@@ -55,15 +55,15 @@ async def monitor():
                         amnt = float(t.get("amount", 0))
                         cash = format_dollars(val)
                         tokens = format_tokens(amnt)
-
-                        if kind == "BUY":
-                            ttl = f"🟩HUGE BUY: {sym}"
-                            body = f"{tokens} Tokens bought for {cash} by @{usr} https://rugplay.com/coin/{sym}"
-                        elif kind == "SELL":
-                            ttl = f"🟥HUGE SELL: {sym}"
-                            body = f"{tokens} Tokens sold for {cash} by @{usr} https://rugplay.com/coin/{sym}"
-                        else:
-                            continue
+                        if usr.lower() != "dingdong":
+                            if kind == "BUY":
+                                ttl = f"🟩HUGE BUY: {sym}"
+                                body = f"{tokens} Tokens bought for {cash} by @{usr} https://rugplay.com/coin/{sym}"
+                            elif kind == "SELL":
+                                ttl = f"🟥HUGE SELL: {sym}"
+                                body = f"{tokens} Tokens sold for {cash} by @{usr} https://rugplay.com/coin/{sym}"
+                            else:
+                                continue
 
                         notif(ttl, body)
                     except:
